@@ -27,10 +27,12 @@ function App() {
         <input className="page-principal-input-radio"
           type="radio" 
           value="Dinheiro"
+          name="OpcaoPagamento"
           onChange={e => setOpcaoPagamento(e.target.value)}/> Dinheiro
         <input className="page-principal-input-radio" 
           type="radio"
           value="Cartao"
+          name="OpcaoPagamento"
           onChange={e => setOpcaoPagamento(e.target.value)}/> Cartão
       </form>
     </div>
