@@ -7,13 +7,9 @@ import './App.css';
 function App() {
 
   //Manuseamento de estado das variaveis
-  // eslint-disable-next-line no-unused-vars
   const [valorDolar, setValorDolar] = useState();
-  // eslint-disable-next-line no-unused-vars
   const [taxaEstado, setTaxaEstado] = useState();
-  // eslint-disable-next-line no-unused-vars
   const [opcaoPagamento, setOpcaoPagamento] = useState();
-  //const [jsonData, setJsonData] = useState();
   const [cotacaoDolar, setCotacaoDolar] = useState();
   
 
@@ -23,20 +19,22 @@ function App() {
     .then(response => {
         const cotacao = response.data
         setCotacaoDolar(cotacao)
-        console.log(cotacao)
     })
     .catch(error => {
       //gestão de erros
       console.log(error)
     })
   },[]);
+
   console.log(valorDolar)
   console.log(taxaEstado)
   console.log(opcaoPagamento)
+  //verificação caso a api me retorne um valor nulo
   if(cotacaoDolar == null) {
     return <> </> 
   }
   
+  //função que calcula o valor do IOF de acordo com a opção dinheiro ou cartão
   function tipoIOF() {
     let opcao = opcaoPagamento
     if(opcao == "Dinheiro") {
