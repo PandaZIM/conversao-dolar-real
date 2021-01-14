@@ -7,8 +7,8 @@ import './App.css';
 function App() {
 
   //Manuseamento de estado das variaveis
-  const [valorDolar, setValorDolar] = useState();
-  const [taxaEstado, setTaxaEstado] = useState();
+  const [valorDolar, setValorDolar] = useState(0);
+  const [taxaEstado, setTaxaEstado] = useState(0);
   const [opcaoPagamento, setOpcaoPagamento] = useState();
   const [cotacaoDolar, setCotacaoDolar] = useState();
   
@@ -36,7 +36,7 @@ function App() {
   
   //função que calcula o valor do IOF de acordo com a opção dinheiro ou cartão
   function tipoIOF() {
-    let opcao = opcaoPagamento
+    const opcao = opcaoPagamento
     if(opcao == "Dinheiro") {
       const IOF = (cotacaoDolar.USD.high * 0.011)
       return IOF
@@ -44,6 +44,14 @@ function App() {
       const IOF = (cotacaoDolar.USD.high * 0.064)
       return IOF
     }
+  }
+
+  //função que faz o calculo to total a sere pago sem imposto
+  function operacaoPorcentagem(){
+    const operacao = valorDolar * (taxaEstado/100) 
+
+    const total = (parseInt(valorDolar) + parseInt(operacao))
+    return total
   }
 
   return (
@@ -74,6 +82,7 @@ function App() {
       </form>
       <div className="page-principal-dados">
         <span>IOF: <p>{tipoIOF()}</p></span>
+        <span>Total em dólar sem imposto: <p>{operacaoPorcentagem()}</p></span>
       </div>
     </div>
   );
