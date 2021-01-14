@@ -15,7 +15,7 @@ function App() {
   const [opcaoPagamento, setOpcaoPagamento] = useState();
   //const [jsonData, setJsonData] = useState();
   const [cotacaoDolar, setCotacaoDolar] = useState();
-
+  
 
   //consumação da api
   useEffect(() => {
@@ -32,8 +32,20 @@ function App() {
   },[]);
   console.log(valorDolar)
   console.log(taxaEstado)
+  console.log(opcaoPagamento)
   if(cotacaoDolar == null) {
     return <> </> 
+  }
+  
+  function tipoIOF() {
+    let opcao = opcaoPagamento
+    if(opcao == "Dinheiro") {
+      const IOF = (cotacaoDolar.USD.high * 0.011)
+      return IOF
+    } else {
+      const IOF = (cotacaoDolar.USD.high * 0.064)
+      return IOF
+    }
   }
 
   return (
@@ -63,7 +75,7 @@ function App() {
           onChange={e => setOpcaoPagamento(e.target.value)}/> Cartão
       </form>
       <div className="page-principal-dados">
-        
+        <span>IOF: <p>{tipoIOF()}</p></span>
       </div>
     </div>
   );
