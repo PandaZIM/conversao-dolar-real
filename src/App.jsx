@@ -12,7 +12,9 @@ function App() {
   const [opcaoPagamento, setOpcaoPagamento] = useState();
   const [cotacaoDolar, setCotacaoDolar] = useState();
   const [IOF, setIOF] = useState();
-
+  const [semImpostoDinheiro, setSemImpostoDinheiro] = useState();
+  const [comImpostoDinheiro, setComImpostoDinheiro] = useState();
+  
 
   //consumação da api
   useEffect(() => {
@@ -35,13 +37,23 @@ function App() {
     return <> </> 
   }
   
-  //função que faz o calculo do total a ser pago sem imposto
-  function operacaoPorcentagem(){
-    const operacao = valorDolar * (taxaEstado/100) 
+  /*
+  function tipoIOF() {
+    const opcao = opcaoPagamento
+    if(opcao == "Dinheiro") {
+      const IOF = (cotacaoDolar.USD.high * 0.011)
+      return IOF
+    }
+  } */
 
-    const total = (parseInt(valorDolar) + parseInt(operacao))
+  
+  //função que faz o calculo do total a ser pago sem imposto
+  /*function operacaoPorcentagem(){
+    const taxa = (valorDolar * (taxaEstado/100)) + valorDolar 
+
+    const total = (parseInt(valorDolar) + parseInt(taxa))
     return total
-  }
+  }*/
 
 
   return (
@@ -54,19 +66,23 @@ function App() {
         <input className="page-principal-input-text"
           type="text"
           placeholder="US$"
-          onChange={e => setValorDolar(e.target.value)}/>
+          onChange={e => setValorDolar(parseInt(e.target.value))}/>
         <span>Taxa do estado: </span>
         <input type="text"
           placeholder="%"
-          onChange={e => setTaxaEstado(e.target.value)}/>
+          onChange={e => setTaxaEstado(parseInt(e.target.value))}/>
         <input className="page-principal-input-radio"
           type="radio" 
           value="Dinheiro"
           name="OpcaoPagamento"
           onChange={(e) => 
           {
+            const operacaoSemImposto = parseInt((valorDolar * (taxaEstado/100))) + parseInt(valorDolar)
+            const operacaoComImposto = parseInt(cotacaoDolar.USD.high) + parseInt((cotacaoDolar.USD.high * 0.011) + cotacaoDolar.USD.high)
             setOpcaoPagamento(e.target.value)
             setIOF(cotacaoDolar.USD.high * 0.011)
+            setSemImpostoDinheiro(`$${operacaoSemImposto}`)
+            setComImpostoDinheiro(`$${operacaoComImposto}`)
           }}/> Dinheiro
         <input className="page-principal-input-radio" 
           type="radio"
@@ -76,11 +92,13 @@ function App() {
           {
               setOpcaoPagamento(e.target.value)
               setIOF(cotacaoDolar.USD.high * 0.064)
+              setSemImpostoDinheiro('$' + (valorDolar * (taxaEstado/100)) + parseInt(valorDolar))
           }}/> Cartão
       </form>
       <div className="page-principal-dados">
         <span>IOF: <p>{IOF}</p></span>
-        <span>Total em dólar sem imposto: <p>{operacaoPorcentagem() + '$'}</p></span>
+        <span>Total em dólar sem imposto: <p>{semImpostoDinheiro}</p></span>
+        <span>Total em dólar com imposto: <p>{comImpostoDinheiro}</p></span>
       </div>
     </div>
   );
