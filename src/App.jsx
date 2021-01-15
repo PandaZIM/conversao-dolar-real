@@ -11,7 +11,8 @@ function App() {
   const [taxaEstado, setTaxaEstado] = useState(0);
   const [opcaoPagamento, setOpcaoPagamento] = useState();
   const [cotacaoDolar, setCotacaoDolar] = useState();
-  
+  const [IOF, setIOF] = useState();
+
 
   //consumação da api
   useEffect(() => {
@@ -30,29 +31,18 @@ function App() {
   console.log(taxaEstado)
   console.log(opcaoPagamento)
   //verificação caso a api me retorne um valor nulo
-  if(cotacaoDolar == null) {
+  if(cotacaoDolar === undefined) {
     return <> </> 
   }
   
-  //função que calcula o valor do IOF de acordo com a opção dinheiro ou cartão
-  function tipoIOF() {
-    const opcao = opcaoPagamento
-    if(opcao == "Dinheiro") {
-      const IOF = (cotacaoDolar.USD.high * 0.011)
-      return IOF
-    } else {
-      const IOF = (cotacaoDolar.USD.high * 0.064)
-      return IOF
-    }
-  }
-
-  //função que faz o calculo to total a sere pago sem imposto
+  //função que faz o calculo do total a ser pago sem imposto
   function operacaoPorcentagem(){
     const operacao = valorDolar * (taxaEstado/100) 
 
     const total = (parseInt(valorDolar) + parseInt(operacao))
     return total
   }
+
 
   return (
     <div className="page-principal">
@@ -73,16 +63,24 @@ function App() {
           type="radio" 
           value="Dinheiro"
           name="OpcaoPagamento"
-          onChange={e => setOpcaoPagamento(e.target.value)}/> Dinheiro
+          onChange={(e) => 
+          {
+            setOpcaoPagamento(e.target.value)
+            setIOF(cotacaoDolar.USD.high * 0.011)
+          }}/> Dinheiro
         <input className="page-principal-input-radio" 
           type="radio"
           value="Cartao"
           name="OpcaoPagamento"
-          onChange={e => setOpcaoPagamento(e.target.value)}/> Cartão
+          onChange={e => 
+          {
+              setOpcaoPagamento(e.target.value)
+              setIOF(cotacaoDolar.USD.high * 0.064)
+          }}/> Cartão
       </form>
       <div className="page-principal-dados">
-        <span>IOF: <p>{tipoIOF()}</p></span>
-        <span>Total em dólar sem imposto: <p>{operacaoPorcentagem()}</p></span>
+        <span>IOF: <p>{IOF}</p></span>
+        <span>Total em dólar sem imposto: <p>{operacaoPorcentagem() + '$'}</p></span>
       </div>
     </div>
   );
