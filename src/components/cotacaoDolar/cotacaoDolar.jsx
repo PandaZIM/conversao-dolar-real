@@ -21,9 +21,11 @@ function CotacaoDolar() {
     return <> </> 
   }
 
+  const cotacaoDolarDia = cotacaoDolar.USD.high
+  
   return(
     <div className="page-principal-cotacoes">
-      <span>Cotação do dia: <p>R${cotacaoDolar.USD.high}</p></span>
+      <span>Cotação do dia: <p>R${cotacaoDolarDia}</p></span>
     </div>
   );
 }
