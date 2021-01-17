@@ -1,9 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-// import { Container } from './styles';
+function TaxaIOF(props) {
+    
+  return(
+      <div>
+          <span>Taxa do IOF: {props.taxa}</span>
+      </div>
+  );
+}
 
-function TaxaIOF() {
-  return <div />;
+TaxaIOF.propTypes = {
+    taxa: PropTypes.number
 }
 
 export default TaxaIOF;
