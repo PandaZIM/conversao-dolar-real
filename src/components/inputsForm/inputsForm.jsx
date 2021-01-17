@@ -6,13 +6,15 @@ function InputsForm(props) {
     if(props.valor === undefined){
       return <> </>
     }
+
     const [valorDolar, setValorDolar] = useState(0);
     const [taxaEstado, setTaxaEstado] = useState(0);
 
     const [opcaoPagamento, setOpcaoPagamento] = useState();
 
 
-    const IOFsemImposto = props.valor * 0.011
+    const IOFDinheiro = props.valor * 0.011
+    const IOFCartao = props.valor * 0.064
     
     const operacaoSemImposto = parseInt((valorDolar * (taxaEstado/100))) + parseInt(valorDolar)
     const operacaoComImposto = parseInt(props.valor) + parseInt((props.valor) + props.valor)
@@ -35,17 +37,17 @@ function InputsForm(props) {
         onChange={(e) => 
         {   
             setOpcaoPagamento(e.target.value)
-            props.taxa(IOFsemImposto)
+            props.taxa(IOFDinheiro)
             props.funcoes(`$${operacaoSemImposto}`, `$${operacaoComImposto}`)
         }}/> Dinheiro
         <input className="page-principal-input-radio"
         type="radio" 
-        value="Dinheiro"
+        value="Cartao"
         name="OpcaoPagamento"
         onChange={(e) => 
         {   
             setOpcaoPagamento(e.target.value)
-         /*    setIOF(cotacaoDolar.USD.high * 0.011) */
+            props.taxa(IOFCartao)
             props.funcoes(`$${operacaoSemImposto}`, `$${operacaoComImposto}`)
         }}/> Cartão
     </form>
