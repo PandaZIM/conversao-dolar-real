@@ -3,14 +3,17 @@
 import React, {useState} from 'react';
 
 function InputsForm(props) {
+    if(props.valor === undefined){
+      return <> </>
+    }
     const [valorDolar, setValorDolar] = useState(0);
     const [taxaEstado, setTaxaEstado] = useState(0);
 
-    const [IOF, setIOF] = useState();
     const [opcaoPagamento, setOpcaoPagamento] = useState();
 
 
     const IOFsemImposto = props.valor * 0.011
+    
     const operacaoSemImposto = parseInt((valorDolar * (taxaEstado/100))) + parseInt(valorDolar)
     const operacaoComImposto = parseInt(props.valor) + parseInt((props.valor) + props.valor)
 
@@ -32,7 +35,7 @@ function InputsForm(props) {
         onChange={(e) => 
         {   
             setOpcaoPagamento(e.target.value)
-            IOFsemImposto
+            props.taxa(IOFsemImposto)
             props.funcoes(`$${operacaoSemImposto}`, `$${operacaoComImposto}`)
         }}/> Dinheiro
         <input className="page-principal-input-radio"
