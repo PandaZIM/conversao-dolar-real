@@ -6,10 +6,10 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import CotacaoDolar from './components/cotacaoDolar/cotacaoDolar';
 import InputsForm from './components/inputsForm/inputsForm';
+import TaxaIOF from './components/TaxaIOF/TaxaIOF';
 //import api from './services/api';
 
 function App() {
-
   //Manuseamento de estado das variaveis
 /*   const [valorDolar, setValorDolar] = useState(0);
   const [taxaEstado, setTaxaEstado] = useState(0); */
@@ -63,7 +63,6 @@ function App() {
     setCotacaoDolar(cotacao)
   } */
 
-
   return (
     <div className="page-principal">
       <CotacaoDolar jao={cotacao => {
@@ -73,6 +72,9 @@ function App() {
         funcoes={(semImposto, comImposto) => {
           setSemImpostoDinheiro(semImposto)
           setComImpostoDinheiro(comImposto)
+        }}
+        taxa={(taxaIOF) => {
+          setIOF(taxaIOF)
         }}/>
         
       {/* <form className="page-principal-form" action="">
@@ -115,6 +117,7 @@ function App() {
           <span>Total em dólar sem imposto: <p>{semImpostoDinheiro}</p></span>
           <span>Total em dólar com imposto: <p>{comImpostoDinheiro}</p></span>
         </div> */}
+        <TaxaIOF taxa={IOF}/>
     </div>
   );
 }
