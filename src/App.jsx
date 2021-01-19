@@ -7,6 +7,7 @@ import './App.css';
 import CotacaoDolar from './components/cotacaoDolar/cotacaoDolar';
 import InputsForm from './components/inputsForm/inputsForm';
 import TaxaIOF from './components/TaxaIOF/TaxaIOF';
+import TotalEmDolar from './components/TotalEmDolar/TotalEmDolar';
 //import api from './services/api';
 
 function App() {
@@ -69,8 +70,10 @@ function App() {
         setCotacaoDolar(cotacao)
       }}/>
         <InputsForm valor={cotacaoDolar?.USD.high}
-        funcoes={(semImposto, comImposto) => {
+        onSemImpostoDinheiro={(semImposto) => {
           setSemImpostoDinheiro(semImposto)
+        }}
+        onComImpostoDinheiro={(comImposto) =>{
           setComImpostoDinheiro(comImposto)
         }}
         taxa={(taxaIOF) => {
@@ -118,6 +121,9 @@ function App() {
           <span>Total em dólar com imposto: <p>{comImpostoDinheiro}</p></span>
         </div> */}
         <TaxaIOF taxa={IOF}/>
+        <TotalEmDolar 
+        onSemImpostoDinheiro={semImpostoDinheiro}
+        onComImpostoDinheiro={comImpostoDinheiro}/>
     </div>
   );
 }
