@@ -2,6 +2,8 @@
 /* eslint-disable react/prop-types */
 import React, {useState} from 'react';
 
+import './styles.scss'
+
 function InputsForm(props) {
     if(props.valor === undefined){
       return <> </>
@@ -32,6 +34,7 @@ function InputsForm(props) {
         <input type="text"
         placeholder="%"
         onChange={e => setTaxaEstado(parseInt(e.target.value))}/>
+        <br/>
         <input className="page-principal-input-radio"
         type="radio" 
         value="Dinheiro"
@@ -44,7 +47,7 @@ function InputsForm(props) {
             props.onSemImpostoReal(`R$${operacaoSemImpostoReal.toFixed(2)}`)
             props.onComImpostoReal(`R$${operacaoComImpostoReal.toFixed(2)}`)
         }}/> Dinheiro
-        <input className="page-principal-input-radio"
+        <input className="page-principal-input-radio-cartao"
         type="radio" 
         value="Cartao"
         name="OpcaoPagamento"
