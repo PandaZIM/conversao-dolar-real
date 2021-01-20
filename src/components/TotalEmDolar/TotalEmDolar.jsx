@@ -5,8 +5,8 @@ import React from 'react';
 function TotalEmDolar(props) {
   return (
     <div>
-        <span>Total em dólar sem imposto: {props.onSemImpostoDinheiro}</span>
-        <span>Total em dólar com imposto: {props.onComImpostoDinheiro}</span>
+        <span>Total em dólar sem imposto: {props.onSemImposto}</span>
+        <span>Total em dólar com imposto: {props.onComImposto}</span>
     </div>
   );
 }
