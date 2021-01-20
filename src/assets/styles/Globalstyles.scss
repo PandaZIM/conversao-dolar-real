@@ -1,6 +1,6 @@
 :root {
-    --color-background: #EAFDF8;
-    --color-valores: #1B512D;
+    --color-background: #eceeed;
+    --color-valores: #057510;
     
     font-size: 60%;
 }
@@ -11,7 +11,19 @@
     box-sizing: border-box;
 }
 
+span {
+    display: flex;
+    flex-direction: row;
+}
+
+p {
+    color: var(--color-valores);
+    font-weight: 1000;
+    padding-left: 8px;
+}
+
 html, body, #root {
+    background: var(--color-background);
     height: 100vh;
 }
 
