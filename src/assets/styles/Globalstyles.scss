@@ -1,0 +1,36 @@
+:root {
+    --color-background: #EAFDF8;
+    --color-valores: #1B512D;
+    
+    font-size: 60%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    height: 100vh;
+}
+
+body,
+input,
+textarea {
+
+  font: 500 1.6rem Poppins;
+  color: var(--color-text-base);
+}
+
+#root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-widht: 700px){
+    :root{
+        font-size: 62.5%;
+    }
+}
