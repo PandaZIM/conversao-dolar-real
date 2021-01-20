@@ -12,10 +12,10 @@ function App() {
 
   const [cotacaoDolar, setCotacaoDolar] = useState();
   const [IOF, setIOF] = useState();
-  const [semImpostoDinheiro, setSemImpostoDinheiro] = useState();
-  const [comImpostoDinheiro, setComImpostoDinheiro] = useState();
-  const [semImpostoDinheiroReal, setSemImpostoDinheiroReal] = useState()
-  const [comImpostoDinheiroReal, setComImpostoDinheiroReal] = useState()
+  const [semImposto, setSemImposto] = useState();
+  const [comImposto, setComImposto] = useState();
+  const [semImpostoReal, setSemImpostoReal] = useState()
+  const [comImpostoReal, setComImpostoReal] = useState()
 
   return (
     <div className="page-principal">
@@ -23,30 +23,31 @@ function App() {
         setCotacaoDolar(cotacao)
       }}/>
         <InputsForm valor={cotacaoDolar?.USD.high}
-        onSemImpostoDinheiro={(semImposto) => {
-          setSemImpostoDinheiro(semImposto)
+        onSemImposto={(semImpostos) => {
+          setSemImposto(semImpostos)
         }}
-        onComImpostoDinheiro={(comImposto) =>{
-          setComImpostoDinheiro(comImposto)
+        onComImposto={(comImpostos) =>{
+          setComImposto(comImpostos)
         }}
-        onSemImpostoDinheiroReal={(semImpostoReal) => {
-          setSemImpostoDinheiroReal(semImpostoReal)
+        onSemImpostoReal={(semImpostosReal) => {
+          setSemImpostoReal(semImpostosReal)
         }}
-        onComImpostoDinheiroReal={(comImpostoReal) => {
-          setComImpostoDinheiroReal(comImpostoReal)
+        onComImpostoReal={(comImpostosReal) => {
+          setComImpostoReal(comImpostosReal)
         }}
+        onComImpostoCartao 
         taxa={(taxaIOF) => {
           setIOF(taxaIOF)
         }}/>
 
         <TaxaIOF taxa={IOF}/>
         <TotalEmDolar 
-        onSemImpostoDinheiro={semImpostoDinheiro}
-        onComImpostoDinheiro={comImpostoDinheiro}
+        onSemImposto={semImposto}
+        onComImposto={comImposto}
         />
         <TotalEmDinheiro 
-        onSemImpostoDinheiroReal={semImpostoDinheiroReal}
-        onComImpostoDinheiroReal={comImpostoDinheiroReal}
+        onSemImpostoReal={semImpostoReal}
+        onComImpostoReal={comImpostoReal}
         />
     </div>
   );
