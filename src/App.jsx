@@ -1,6 +1,7 @@
 import React, {useState } from 'react';
 
-import './App.css';
+import '../src/assets/styles/Globalstyles.scss'
+
 import CotacaoDolar from './components/cotacaoDolar/cotacaoDolar';
 import InputsForm from './components/inputsForm/inputsForm';
 import TaxaIOF from './components/TaxaIOF/TaxaIOF';
