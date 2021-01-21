@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import api from '../../services/api/api';
-/* import inputsForm from '../inputsForm/inputsForm'; */
+
+import './styles.scss'
 
 function CotacaoDolar(props) {
   const [cotacaoDolar, setCotacaoDolar] = useState();
