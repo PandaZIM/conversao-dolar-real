@@ -14,11 +14,12 @@
 span {
     display: flex;
     flex-direction: row;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 p {
     color: var(--color-valores);
-    font-weight: 1000;
+    font-weight: 600;
     padding-left: 8px;
 }
 
