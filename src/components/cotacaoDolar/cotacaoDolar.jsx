@@ -13,7 +13,7 @@ function CotacaoDolar(props) {
     .then(response => {
         const cotacao = response.data
         setCotacaoDolar(cotacao)
-        props.jao(cotacao)
+        props.onCotacao(cotacao)
     })
     .catch(error => {
       //gestão de erros

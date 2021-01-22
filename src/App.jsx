@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="page-principal">
-      <CotacaoDolar jao={cotacao => {
+      <CotacaoDolar onCotacao={cotacao => {
         setCotacaoDolar(cotacao)
       }}/>
         <InputsForm valor={cotacaoDolar?.USD.high}
@@ -36,7 +36,6 @@ function App() {
         onComImpostoReal={(comImpostosReal) => {
           setComImpostoReal(comImpostosReal)
         }}
-        onComImpostoCartao 
         taxa={(taxaIOF) => {
           setIOF(taxaIOF)
         }}/>
