@@ -11,6 +11,19 @@
     margin-top: 10px;
     margin-left: 5px;
     font-family: 'Titillium Web', sans-serif;
+    background-color: black;
+}
+
+input[type='radio']:checked:after {
+    width: 10px;
+    height: 10px;
+    border-radius: 8px;
+    position: relative;
+    background-color:  #add8e6;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid black;
 }
 
 .page-principal-input-radio-cartao {
