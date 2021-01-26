@@ -7,6 +7,8 @@ import React, {useState} from 'react';
 import './styles.scss'
 
 function InputsForm(props) {
+
+    //Se na primeira requisição vir undefined, retorne html basico até vir a proxima requisição
     if(props.valor === undefined){
       return <> </>
     }

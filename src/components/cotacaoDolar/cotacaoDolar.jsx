@@ -21,6 +21,7 @@ function CotacaoDolar(props) {
     })
   },[]);
 
+  //Se na primeira requisição vir undefined, retorne html basico até vir a proxima requisição
   if(cotacaoDolar === undefined) {
     return <> </> 
   }
