@@ -1,8 +1,8 @@
-/* eslint-disable no-undef */
 /* eslint-disable react/jsx-no-duplicate-props */
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
+
 
 import './styles.scss'
 
@@ -73,6 +73,14 @@ function InputsForm(props) {
         }}/> Cartão
     </form>
   );
+}
+
+InputsForm.PropTypes = {
+  taxa: PropTypes.number,
+  onSemImposto: PropTypes.number,
+  onComImposto: PropTypes.number,
+  onSemImpostoReal: PropTypes.number,
+  onComImpostoReal: PropTypes.number
 }
 
 export default InputsForm;

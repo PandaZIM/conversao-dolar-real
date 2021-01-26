@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-
+import PropTypes from 'prop-types';
 
 function TotalEmDolar(props) {
   return (
@@ -11,6 +10,9 @@ function TotalEmDolar(props) {
   );
 }
 
-
+TotalEmDolar.propTypes = {
+  onSemImposto: PropTypes.Number,
+  onComImposto: PropTypes.Number
+}
 
 export default TotalEmDolar;
