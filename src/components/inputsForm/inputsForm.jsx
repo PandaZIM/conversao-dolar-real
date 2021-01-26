@@ -65,7 +65,7 @@ function InputsForm(props) {
         name="OpcaoPagamento"
         onChange={() => 
         {   
-            props.taxa(`R${IOFCartao.toFixed(2)}`)
+            props.taxa(`R$${IOFCartao.toFixed(2)}`)
             props.onSemImposto(`$${operacaoSemImpostoCartao.toFixed(2)}`)
             props.onComImposto(`$${operacaoComImpostoCartao.toFixed(2)}`)
             props.onSemImpostoReal(`R$${operacaoSemImpostoCartaoReal.toFixed(2)}`)
