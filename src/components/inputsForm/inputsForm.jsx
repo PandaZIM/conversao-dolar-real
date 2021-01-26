@@ -12,12 +12,10 @@ function InputsForm(props) {
     }
 
     const [valorDolar, setValorDolar] = useState(0);
-    console.log(valorDolar)
-
     const [taxaEstado, setTaxaEstado] = useState(0);
 
     //Regra de negócio
-    const IOFDinheiro = props.valor * 0.011
+    const IOFDinheiro = isNaN(valorDolar * 0.011) ? 0 : valorDolar * 0.011
     const IOFCartao = isNaN(valorDolar * 0.064) ? 0 : valorDolar * 0.064
     const impostoEstado = (valorDolar * (taxaEstado/100))
     
@@ -53,7 +51,6 @@ function InputsForm(props) {
         name="OpcaoPagamento"
         onChange={() => 
         {   
-            
             props.taxa(IOFDinheiro.toFixed(2))
             props.onSemImposto(`$${operacaoSemImposto.toFixed(2)}`)
             props.onComImposto(`$${operacaoComImposto.toFixed(2)}`)
