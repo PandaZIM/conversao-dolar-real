@@ -30,6 +30,9 @@ yarn start
 
 ## Deploy
 
+<a href="https://github.com/PandaZIM/conversao-dolar-real">Github</a> | 
+<a href="https://conversaodolarreal.netlify.app">Netlify</a>
+
 ## Contato
 
 João Pedro Coutinho @ [LinkedIn](www.linkedin.com/in/jcoutinhotoledo)
