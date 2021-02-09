@@ -3,6 +3,7 @@ import React, {useState } from 'react';
 import '../src/assets/styles/Globalstyles.scss'
 
 import CotacaoDolar from './components/cotacaoDolar/cotacaoDolar';
+import Header from './components/Header/Header';
 import InputsForm from './components/inputsForm/inputsForm';
 import TaxaIOF from './components/TaxaIOF/TaxaIOF';
 import TotalEmDinheiro from './components/TotalEmDinheiro/TotalEmDinheiro';
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <div className="page-principal">
+      <Header/>
       <CotacaoDolar onCotacao={cotacao => {
         setCotacaoDolar(cotacao)
       }}/>
