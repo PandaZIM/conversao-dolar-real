@@ -1,5 +1,5 @@
 :root {
-    --color-background: #eceeed;
+    --color-background:#FFFFFF;
     --color-valores: #057510;
     
     font-size: 60%;
@@ -9,12 +9,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 span {
     display: flex;
     flex-direction: row;
-    font-family: 'Titillium Web', sans-serif;
+   
 }
 
 p {
@@ -38,8 +39,7 @@ textarea {
 
 #root {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 50px;
 }
 
 @media (min-widht: 700px){
