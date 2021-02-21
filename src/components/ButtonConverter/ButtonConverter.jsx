@@ -1,12 +1,15 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import Group from '../../assets/Images/Group.svg'
+import './styles.scss'
 
 function ButtonConverter() {
   return (
-      <div>
-          <img src="" alt="Botao de conversão"/>
-          <button>Converter</button>
+      <div className='button-container'>
+          <button type='submit'>
+            <img src={Group} alt=""/>
+            Converter
+          </button>
       </div>
   );
 }
