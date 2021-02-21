@@ -34,10 +34,13 @@ html, body{
 
 
 body {
-    background-image: url("../Images/Mask.png");
+    background-image: 
+    url("../Images/Graph.png"),
+    url("../Images/Mask.png");
     background-repeat: no-repeat;
-    background-position: right bottom;
-    background-size:contain;
+    background-position: 83%, right bottom;
+    background-size: 24%, contain;
+    background-attachment: fixed, scroll;
     position: fixed;
     height: 100vh;
     width: 100vw;
