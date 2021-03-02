@@ -35,6 +35,6 @@ yarn start
 
 ## Contato
 
-João Pedro Coutinho @ [LinkedIn](www.linkedin.com/in/jcoutinhotoledo)
+João Pedro Coutinho @ [LinkedIn](https://www.linkedin.com/in/jcoutinhotoledo)
 
 Email: <a href = "mailto: jcoutinho.t@gmail.com">jcoutinho.t@gmail.com</a>
