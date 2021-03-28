@@ -1,0 +1,24 @@
+.button-container {
+    
+    button {
+        display: flex;
+        padding: 16px;
+        position: static;
+        background: #8C9CAD;
+        border-radius: 8px;
+        border-color: #00AB63;
+        border-style: solid;
+        width: 149px;
+        font-size: 16px;
+        color: #FFFFFF;
+        line-height: 16px;
+
+        img {
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+            margin: 0px 16px 0px 0px;
+        }
+    }
+}
+

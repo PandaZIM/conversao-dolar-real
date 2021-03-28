@@ -34,43 +34,51 @@ function InputsForm(props) {
 
   return(
     <form className="page-principal-form" action="">
-        <span>Digite o valor em Dólar: </span>
-        <input className="page-principal-input-text"
-        type="number"
-        placeholder="US$"
-        onChange={e => setValorDolar(parseInt(e.target.value))} />
-        <span>Taxa do estado: </span>
-        <input className="page-principal-input-text"
-        type="number"
-        placeholder="%"
-        onChange={(e) => {
-          setTaxaEstado(parseInt(e.target.value))
-        }}/>
-        <br/>
+      <div className="container-inputs">
+        <div className="container-inputs-dolar">
+          <span>Dólar</span>
+            <span className="placeholder">$</span>
+            <input className="page-principal-input-text"
+            type="number"
+            onChange={e => setValorDolar(parseInt(e.target.value))} />
+        </div>
+        <div className="container-input-tax">
+          <span>Taxa do Estado</span>
+            <span className="placeholder">%</span>
+            <input className="page-principal-input-text"
+            type="number"
+            onChange={(e) => {
+              setTaxaEstado(parseInt(e.target.value))
+            }}/>
+        </div>
+      </div>
+      <div className="container-radio">
+        <span>Tipo de Compra</span>
         <input className="page-principal-input-radio"
-        type="radio" 
-        value="Dinheiro"
-        name="OpcaoPagamento"
-        onChange={() => 
-        {   
-            props.taxa(`R$${IOFDinheiro.toFixed(2)}`)
-            props.onSemImposto(`$${operacaoSemImposto.toFixed(2)}`)
-            props.onComImposto(`$${operacaoComImposto.toFixed(2)}`)
-            props.onSemImpostoReal(`R$${operacaoSemImpostoReal.toFixed(2)}`)
-            props.onComImpostoReal(`R$${operacaoComImpostoReal.toFixed(2)}`)
-        }}/> Dinheiro
-        <input className="page-principal-input-radio-cartao"
-        type="radio" 
-        value="Cartao"
-        name="OpcaoPagamento"
-        onChange={() => 
-        {   
-            props.taxa(`R$${IOFCartao.toFixed(2)}`)
-            props.onSemImposto(`$${operacaoSemImpostoCartao.toFixed(2)}`)
-            props.onComImposto(`$${operacaoComImpostoCartao.toFixed(2)}`)
-            props.onSemImpostoReal(`R$${operacaoSemImpostoCartaoReal.toFixed(2)}`)
-            props.onComImpostoReal(`R$${operacaoComImpostoCartaoReal.toFixed(2)}`)
-        }}/> Cartão
+          type="radio" 
+          value="Dinheiro"
+          name="OpcaoPagamento"
+          onChange={() => 
+          {   
+              props.taxa(`R$${IOFDinheiro.toFixed(2)}`)
+              props.onSemImposto(`$${operacaoSemImposto.toFixed(2)}`)
+              props.onComImposto(`$${operacaoComImposto.toFixed(2)}`)
+              props.onSemImpostoReal(`R$${operacaoSemImpostoReal.toFixed(2)}`)
+              props.onComImpostoReal(`R$${operacaoComImpostoReal.toFixed(2)}`)
+          }}/> Dinheiro
+          <input className="page-principal-input-radio-cartao"
+          type="radio" 
+          value="Cartao"
+          name="OpcaoPagamento"
+          onChange={() => 
+          {   
+              props.taxa(`R$${IOFCartao.toFixed(2)}`)
+              props.onSemImposto(`$${operacaoSemImpostoCartao.toFixed(2)}`)
+              props.onComImposto(`$${operacaoComImpostoCartao.toFixed(2)}`)
+              props.onSemImpostoReal(`R$${operacaoSemImpostoCartaoReal.toFixed(2)}`)
+              props.onComImpostoReal(`R$${operacaoComImpostoCartaoReal.toFixed(2)}`)
+          }}/> Cartão
+      </div> 
     </form>
   );
 }

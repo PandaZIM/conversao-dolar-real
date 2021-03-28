@@ -1,0 +1,21 @@
+.Container {
+    display: flex;
+    align-items: center;
+    line-height: 27px;
+}
+
+.Container-content {
+    padding-left: 48px;
+    
+    h1{
+        color: #45505E;
+        size: 18px;
+        font-size: 18px;
+    }
+
+    h2 {
+        color: #8C9CAD;
+        size: 16px;
+        font-size: 14px;
+    }
+}

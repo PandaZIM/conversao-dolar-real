@@ -1,31 +1,49 @@
 :root {
-    --color-background: #eceeed;
+    --color-background:#FFFFFF;
     --color-valores: #057510;
     
     font-size: 60%;
+    
+}
+
+.page-principal {
+    margin: 64px;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 span {
     display: flex;
     flex-direction: row;
-    font-family: 'Titillium Web', sans-serif;
 }
 
 p {
     color: var(--color-valores);
     font-weight: 600;
-    padding-left: 8px;
+    padding-left: 4px;
 }
 
-html, body, #root {
+html, body{
     background: var(--color-background);
+}
+
+
+body {
+    background-image: 
+    url("../Images/Graph.png"),
+    url("../Images/Mask.png");
+    background-repeat: no-repeat;
+    background-position: 83%, right bottom;
+    background-size: 24%, contain;
+    background-attachment: fixed, scroll;
+    position: fixed;
     height: 100vh;
+    width: 100vw;
 }
 
 body,
@@ -38,8 +56,6 @@ textarea {
 
 #root {
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 @media (min-widht: 700px){

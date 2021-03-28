@@ -3,8 +3,10 @@ import React, {useState } from 'react';
 import '../src/assets/styles/Globalstyles.scss'
 
 import CotacaoDolar from './components/cotacaoDolar/cotacaoDolar';
+import Header from './components/Header/Header';
 import InputsForm from './components/inputsForm/inputsForm';
 import TaxaIOF from './components/TaxaIOF/TaxaIOF';
+import ButtonConverter  from './components/ButtonConverter/ButtonConverter'
 import TotalEmDinheiro from './components/TotalEmDinheiro/TotalEmDinheiro';
 import TotalEmDolar from './components/TotalEmDolar/TotalEmDolar';
 
@@ -20,6 +22,7 @@ function App() {
 
   return (
     <div className="page-principal">
+      <Header/>
       <CotacaoDolar onCotacao={cotacao => {
         setCotacaoDolar(cotacao)
       }}/>
@@ -41,6 +44,7 @@ function App() {
         }}/>
 
         <TaxaIOF taxa={IOF}/>
+        <ButtonConverter/>
         <TotalEmDolar 
         onSemImposto={semImposto}
         onComImposto={comImposto}
