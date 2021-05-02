@@ -1,6 +1,6 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 
-import '../src/assets/styles/Globalstyles.scss'
+import '../src/assets/styles/Globalstyles.scss';
 
 import CotacaoDolar from './components/cotacaoDolar/cotacaoDolar';
 import InputsForm from './components/inputsForm/inputsForm';
@@ -15,40 +15,40 @@ function App() {
   const [IOF, setIOF] = useState();
   const [semImposto, setSemImposto] = useState();
   const [comImposto, setComImposto] = useState();
-  const [semImpostoReal, setSemImpostoReal] = useState()
-  const [comImpostoReal, setComImpostoReal] = useState()
+  const [semImpostoReal, setSemImpostoReal] = useState();
+  const [comImpostoReal, setComImpostoReal] = useState();
 
   return (
     <div className="page-principal">
-      <CotacaoDolar onCotacao={cotacao => {
-        setCotacaoDolar(cotacao)
-      }}/>
-        <InputsForm valor={cotacaoDolar?.USD.high}
+      <CotacaoDolar price={cotacao => {
+        setCotacaoDolar(cotacao);
+      }} />
+      <InputsForm valor={cotacaoDolar.USD.high}
         onSemImposto={(semImpostos) => {
-          setSemImposto(semImpostos)
+          setSemImposto(semImpostos);
         }}
-        onComImposto={(comImpostos) =>{
-          setComImposto(comImpostos)
+        onComImposto={(comImpostos) => {
+          setComImposto(comImpostos);
         }}
         onSemImpostoReal={(semImpostosReal) => {
-          setSemImpostoReal(semImpostosReal)
+          setSemImpostoReal(semImpostosReal);
         }}
         onComImpostoReal={(comImpostosReal) => {
-          setComImpostoReal(comImpostosReal)
+          setComImpostoReal(comImpostosReal);
         }}
         taxa={(taxaIOF) => {
-          setIOF(taxaIOF)
-        }}/>
+          setIOF(taxaIOF);
+        }} />
 
-        <TaxaIOF taxa={IOF}/>
-        <TotalEmDolar 
+      <TaxaIOF taxa={IOF} />
+      <TotalEmDolar
         onSemImposto={semImposto}
         onComImposto={comImposto}
-        />
-        <TotalEmDinheiro 
+      />
+      <TotalEmDinheiro
         onSemImpostoReal={semImpostoReal}
         onComImpostoReal={comImpostoReal}
-        />
+      />
     </div>
   );
 }
