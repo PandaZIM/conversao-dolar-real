@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import api from '../../services/api/api';
 
@@ -8,16 +7,15 @@ interface dolarPriceProps {
   price(dolarQuoteHigh: number): void
 }
 
-export default function CotacaoDolar({ price }: dolarPriceProps) {
+export default function DolarPrice({ price }: dolarPriceProps) {
   const [dolarPrice, setDolarPrice] = useState();
 
   //consumação da api
   useEffect(() => {
-    api.get('https://economia.awesomeapi.com.br/json/all')
+    api.get('baseUrl')
       .then((response: any) => {
         const dolarQuote = response.data
         const dolarQuoteHigh = dolarQuote.USD.high
-        console.log(dolarQuoteHigh)
         setDolarPrice(dolarQuoteHigh)
         price(dolarQuoteHigh)
       })
